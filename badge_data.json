@@ -8,8 +8,8 @@
         "created": "2025-03-05T07:04:10.692+00:00",
         "updated": "2025-03-13T21:37:43.158+00:00",
         "statistics": {
-            "pastDayAwardedCount": 149596,
-            "awardedCount": 4616365,
+            "pastDayAwardedCount": 146265,
+            "awardedCount": 4624420,
             "winRatePercentage": 0.093
         },
         "awardingUniverse": {
@@ -27,9 +27,9 @@
         "created": "2025-03-05T07:04:00.352+00:00",
         "updated": "2025-03-13T21:37:06.805+00:00",
         "statistics": {
-            "pastDayAwardedCount": 869725,
-            "awardedCount": 37861419,
-            "winRatePercentage": 0.541
+            "pastDayAwardedCount": 848617,
+            "awardedCount": 37910968,
+            "winRatePercentage": 0.538
         },
         "awardingUniverse": {
             "id": 7296012067,
