@@ -4,29 +4,37 @@ import asyncio
 from discord.ext import commands, tasks
 import requests
 
-# Load token from environment variable file
+# Constants
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-
-CHANNEL_ID =  # Replace with your actual Discord channel ID
+CHANNEL_ID = 1353603012630937650 
+BADGE_IDS = [123456789, 987654321]  
 
 # Set up Discord bot
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# List of games to track
-games = [
-    {"url": "https://www.roblox.com/games/124180448122765/The-Hunt-Mega-Edition", "badge_name": "Hexanoval Overlay", "start_value": None, "last_value": None, "tracking": True},
-    {"url": "https://www.roblox.com/games/124180448122765/The-Hunt-Mega-Edition", "badge_name": "The Hunt: Mega Edition", "start_value": None, "last_value": None, "tracking": True}
-]
-
-def get_badge_stats(badge_name):
-    # Replace with Roblox badge endpoint API call
-    url = f"https://badges.roblox.com/v1/badges/{badge_name}/stats"
-    response = requests.get(url)
-    if response.status_code == 200:
+async def get_badge_stats(badge_id: int) -> int:
+    """Get badge stats from Roblox API"""
+    url = f"https://badges.roblox.com/v1/badges/{badge_id}/stats"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise exception for 4xx or 5xx status codes
         data = response.json()
         return data["wonEver"]
-    else:
+    except requests.RequestException as e:
+        print(f"Error getting badge stats: {e}")
+        return None
+
+async def get_badge_name(badge_id: int) -> str:
+    """Get badge name from Roblox API"""
+    url = f"https://badges.roblox.com/v1/badges/{badge_id}"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise exception for 4xx or 5xx status codes
+        data = response.json()
+        return data["name"]
+    except requests.RequestException as e:
+        print(f"Error getting badge name: {e}")
         return None
 
 @tasks.loop(seconds=15)
@@ -36,37 +44,36 @@ async def update_badge_stats():
         print("Error: Channel not found")
         return
 
-    for game in games:
-        if not game["tracking"]:
-            continue  # Skip tracking if it's already hit the 1,000 increase
-
-        new_value = get_badge_stats(game["badge_name"])
+    for badge_id in BADGE_IDS:
+        new_value = await get_badge_stats(badge_id)
 
         if new_value is None:
             continue
 
-        # Set the start_value if this is the first time tracking
-        if game["start_value"] is None:
-            game["start_value"] = new_value
+        badge_name = await get_badge_name(badge_id)
 
-        old_value = game["last_value"] if game["last_value"] is not None else game["start_value"]
+        if badge_id not in bot.badge_stats:
+            bot.badge_stats[badge_id] = {"start_value": new_value, "last_value": new_value, "tracking": True}
 
-        cumulative_increase = new_value - game["start_value"]
+        badge_stats = bot.badge_stats[badge_id]
+
+        cumulative_increase = new_value - badge_stats["start_value"]
 
         if cumulative_increase >= 1000:
-            game["tracking"] = False  # Stop tracking this game
-            await channel.send(f"âœ… **Tracking stopped for {game['badge_name']}** Because you get the point. - It increased by **{cumulative_increase:,}** since tracking began (from {game['start_value']:,} to {new_value:,})")
+            badge_stats["tracking"] = False  # Stop tracking this badge
+            await channel.send(f"âœ… **Tracking stopped for {badge_name}** Because you get the point. - It increased by **{cumulative_increase:,}** since tracking began (from {badge_stats['start_value']:,} to {new_value:,})")
 
         else:
-            if new_value > old_value:
-                increase = new_value - old_value
-                await channel.send(f"ðŸ”” <@&1353603959691939931> Someone just got something! **{game['badge_name']}** Updated!\n**Previous:** {old_value:,}\n**New:** {new_value:,} (Increase: {increase:,}) \n[The Hunt: Mega Edition](https://www.roblox.com/games/124180448122765/)")
+            if new_value > badge_stats["last_value"]:
+                increase = new_value - badge_stats["last_value"]
+                await channel.send(f"ðŸ”” <@&1353603959691939931> Someone just got something! **{badge_name}** Updated!\n**Previous:** {badge_stats['last_value']:,}\n**New:** {new_value:,} (Increase: {increase:,}) \n[The Hunt: Mega Edition](https://www.roblox.com/games/124180448122765/)")
 
-        game["last_value"] = new_value  # Update last known value
+        badge_stats["last_value"] = new_value  # Update last known value
 
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
+    bot.badge_stats = {}  # Initialize badge stats
     update_badge_stats.start()
 
 bot.run(DISCORD_TOKEN)
