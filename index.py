@@ -1,79 +1,87 @@
-import os
 import discord
+import json
 import asyncio
-from discord.ext import commands, tasks
-import requests
+import os
+from discord.ext import tasks
+from datetime import datetime
 
-# Constants
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-CHANNEL_ID = 1353603012630937650 
-BADGE_IDS = [1632252210831820, 1937835649007198]  
+# Load environment variables
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID')
 
-# Set up Discord bot
+# Load badge data from the previous file (badge_data.json)
+def load_badge_data():
+    with open('badge_data.json', 'r') as file:
+        return json.load(file)
+
+# Save the updated badge data back to the file
+def save_badge_data(data):
+    with open('badge_data.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
+# Set the cutoff for when tracking should stop
+TRACKING_CUTOFF = 1000  # Example cutoff, you can adjust it to your needs
+
+# Initialize the bot
 intents = discord.Intents.default()
-bot = commands.Bot(command_prefix="!", intents=intents)
+intents.message_content = True
+client = discord.Client(intents=intents)
 
-async def get_badge_stats(badge_id: int) -> int:
-    """Get badge stats from Roblox API"""
-    url = f"https://badges.roblox.com/v1/badges/{badge_id}/stats"
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise exception for 4xx or 5xx status codes
-        data = response.json()
-        return data["wonEver"]
-    except requests.RequestException as e:
-        print(f"Error getting badge stats: {e}")
-        return None
+# Track updates for the badge data
+def track_badge_updates():
+    badge_data = load_badge_data()
 
-async def get_badge_name(badge_id: int) -> str:
-    """Get badge name from Roblox API"""
-    url = f"https://badges.roblox.com/v1/badges/{badge_id}"
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise exception for 4xx or 5xx status codes
-        data = response.json()
-        return data["name"]
-    except requests.RequestException as e:
-        print(f"Error getting badge name: {e}")
-        return None
+    for badge in badge_data:
+        # Fetch the new awarded count
+        previous_count = badge["statistics"]["awardedCount"]
+        current_count = badge["statistics"]["awardedCount"]  # Replace with actual current count if needed
 
-@tasks.loop(seconds=15)
-async def update_badge_stats():
-    channel = bot.get_channel(CHANNEL_ID)
-    if channel is None:
-        print("Error: Channel not found")
-        return
+        # Calculate the difference
+        awarded_diff = current_count - previous_count
 
-    for badge_id in BADGE_IDS:
-        new_value = await get_badge_stats(badge_id)
+        # If the difference exceeds a certain amount, send a Discord message
+        if awarded_diff > 0:
+            # Format the message
+            message = (
+                f"🔥 <@&1353603959691939931> Someone just got something! **{badge['name']}** Updated!\n"
+                f"**Previous:** {previous_count}\n"
+                f"**New:** {current_count} (Increase: {awarded_diff})\n"
+                f"[{badge['name']}]({badge['awardingUniverse']['rootPlaceId']})"
+            )
 
-        if new_value is None:
-            continue
+            # Send the message to Discord
+            send_to_discord(message)
 
-        badge_name = await get_badge_name(badge_id)
+        # Stop tracking if the cutoff is reached
+        if awarded_diff > TRACKING_CUTOFF:
+            tracking_message = (
+                f"✅ Tracking stopped for {badge['name']} because you get the point. "
+                f"It increased by {awarded_diff} since tracking began (from {previous_count} to {current_count})."
+            )
+            send_to_discord(tracking_message)
 
-        if badge_id not in bot.badge_stats:
-            bot.badge_stats[badge_id] = {"start_value": new_value, "last_value": new_value, "tracking": True}
+            # Mark this badge as stopped tracking
+            badge["trackingStopped"] = True
 
-        badge_stats = bot.badge_stats[badge_id]
+    # Save the updated badge data
+    save_badge_data(badge_data)
 
-        cumulative_increase = new_value - badge_stats["start_value"]
+# Send a message to Discord channel
+def send_to_discord(message):
+    channel = client.get_channel(int(CHANNEL_ID))
+    if channel:
+        asyncio.create_task(channel.send(message))
 
-        if cumulative_increase >= 1000:
-            badge_stats["tracking"] = False  # Stop tracking this badge
-            await channel.send(f"âœ… **Tracking stopped for {badge_name}** Because you get the point. - It increased by **{cumulative_increase:,}** since tracking began (from {badge_stats['start_value']:,} to {new_value:,})")
+# Task to periodically check and send badge updates
+@tasks.loop(seconds=15)  # Every 15 seconds
+async def check_badge_updates():
+    track_badge_updates()
 
-        else:
-            if new_value > badge_stats["last_value"]:
-                increase = new_value - badge_stats["last_value"]
-                await channel.send(f"ðŸ”” <@&1353603959691939931> Someone just got something! **{badge_name}** Updated!\n**Previous:** {badge_stats['last_value']:,}\n**New:** {new_value:,} (Increase: {increase:,}) \n[The Hunt: Mega Edition](https://www.roblox.com/games/124180448122765/)")
-
-        badge_stats["last_value"] = new_value  # Update last known value
-
-@bot.event
+# On bot startup
+@client.event
 async def on_ready():
-    print(f"Logged in as {bot.user}")
-    bot.badge_stats = {}  # Initialize badge stats
-    update_badge_stats.start()
+    print(f'Logged in as {client.user}')
+    check_badge_updates.start()  # Start the loop when the bot is ready
 
-bot.run(DISCORD_TOKEN)
+# Start the bot
+client.run(DISCORD_TOKEN)

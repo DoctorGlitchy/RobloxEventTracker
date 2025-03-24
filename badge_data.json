@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1937835649007198,
+        "name": "Blanc Knowledge Visor",
+        "displayName": "Blanc Knowledge Visor",
+        "enabled": true,
+        "iconImageId": 91707067378566,
+        "created": "2025-03-05T07:04:10.692+00:00",
+        "updated": "2025-03-13T21:37:43.158+00:00",
+        "statistics": {
+            "pastDayAwardedCount": 149596,
+            "awardedCount": 4616365,
+            "winRatePercentage": 0.093
+        },
+        "awardingUniverse": {
+            "id": 7296012067,
+            "name": "The Hunt: Mega Edition",
+            "rootPlaceId": 124180448122765
+        }
+    },
+    {
+        "id": 1632252210831820,
+        "name": "The Hunt: Mega Edition",
+        "displayName": "The Hunt: Mega Edition",
+        "enabled": true,
+        "iconImageId": 93499774300471,
+        "created": "2025-03-05T07:04:00.352+00:00",
+        "updated": "2025-03-13T21:37:06.805+00:00",
+        "statistics": {
+            "pastDayAwardedCount": 869725,
+            "awardedCount": 37861419,
+            "winRatePercentage": 0.541
+        },
+        "awardingUniverse": {
+            "id": 7296012067,
+            "name": "The Hunt: Mega Edition",
+            "rootPlaceId": 124180448122765
+        }
+    }
+]
