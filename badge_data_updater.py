@@ -31,7 +31,17 @@ def store_badge_data(badge_data):
         else:
             all_badges = []
 
-        all_badges.append(badge_data)
+        # Check if the badge already exists and update it, otherwise append it.
+        existing_badge = next((badge for badge in all_badges if badge["id"] == badge_data["id"]), None)
+        if existing_badge:
+            # Update existing badge
+            existing_badge.update(badge_data)
+            print(f"Updated badge with ID {badge_data['id']}.")
+        else:
+            # Append new badge
+            all_badges.append(badge_data)
+            print(f"Added new badge with ID {badge_data['id']}.")
+
         with open('badge_data.json', 'w') as f:
             json.dump(all_badges, f, indent=4)
         print("Badge data updated in 'badge_data.json'.")
