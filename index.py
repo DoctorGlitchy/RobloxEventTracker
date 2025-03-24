@@ -7,7 +7,7 @@ import requests
 # Constants
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 CHANNEL_ID = 1353603012630937650 
-BADGE_IDS = [123456789, 987654321]  
+BADGE_IDS = [1632252210831820, 1937835649007198]  
 
 # Set up Discord bot
 intents = discord.Intents.default()
