@@ -1,40 +1,702 @@
 [
     {
-        "id": 1937835649007198,
-        "name": "Blanc Knowledge Visor",
-        "displayName": "Blanc Knowledge Visor",
-        "enabled": true,
-        "iconImageId": 91707067378566,
-        "created": "2025-03-05T07:04:10.692+00:00",
-        "updated": "2025-03-13T21:37:43.158+00:00",
+        "id": 3553892029567363,
+        "name": "1. Join",
         "statistics": {
-            "pastDayAwardedCount": 146265,
-            "awardedCount": 4625035,
-            "winRatePercentage": 0.093
+            "pastDayAwardedCount": 4344,
+            "awardedCount": 1545670,
+            "winRatePercentage": 1.0
         },
         "awardingUniverse": {
-            "id": 7296012067,
-            "name": "The Hunt: Mega Edition",
-            "rootPlaceId": 124180448122765
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
         }
     },
     {
-        "id": 1632252210831820,
-        "name": "The Hunt: Mega Edition",
-        "displayName": "The Hunt: Mega Edition",
-        "enabled": true,
-        "iconImageId": 93499774300471,
-        "created": "2025-03-05T07:04:00.352+00:00",
-        "updated": "2025-03-13T21:37:06.805+00:00",
+        "id": 2006476404603013,
+        "name": "2. Leave",
         "statistics": {
-            "pastDayAwardedCount": 848617,
-            "awardedCount": 37914600,
-            "winRatePercentage": 0.538
+            "pastDayAwardedCount": 1791,
+            "awardedCount": 556361,
+            "winRatePercentage": 0.833
         },
         "awardingUniverse": {
-            "id": 7296012067,
-            "name": "The Hunt: Mega Edition",
-            "rootPlaceId": 124180448122765
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1402784206109874,
+        "name": "3. Spawn",
+        "statistics": {
+            "pastDayAwardedCount": 4344,
+            "awardedCount": 1545645,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 3424760970808412,
+        "name": "4. Oof",
+        "statistics": {
+            "pastDayAwardedCount": 2229,
+            "awardedCount": 874750,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2687091214209505,
+        "name": "5. Move",
+        "statistics": {
+            "pastDayAwardedCount": 4309,
+            "awardedCount": 1514485,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1950752823568522,
+        "name": "6. Jump",
+        "statistics": {
+            "pastDayAwardedCount": 3795,
+            "awardedCount": 1310336,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 896410761526962,
+        "name": "7. Touch the Spawnpoint",
+        "statistics": {
+            "pastDayAwardedCount": 4167,
+            "awardedCount": 1447072,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 908937030154893,
+        "name": "8. Touch the Baseplate",
+        "statistics": {
+            "pastDayAwardedCount": 4004,
+            "awardedCount": 1366787,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2249586838099610,
+        "name": "9. Open the Menu",
+        "statistics": {
+            "pastDayAwardedCount": 3774,
+            "awardedCount": 1318327,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1789955136120943,
+        "name": "10. Close the Menu",
+        "statistics": {
+            "pastDayAwardedCount": 2636,
+            "awardedCount": 942717,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 4026905963190467,
+        "name": "11. Play on Computer",
+        "statistics": {
+            "pastDayAwardedCount": 1783,
+            "awardedCount": 628097,
+            "winRatePercentage": 0.829
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2088247848572439,
+        "name": "12. Play on Phone",
+        "statistics": {
+            "pastDayAwardedCount": 1827,
+            "awardedCount": 802654,
+            "winRatePercentage": 0.85
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2959776838245141,
+        "name": "13. Play on VR",
+        "statistics": {
+            "pastDayAwardedCount": 29,
+            "awardedCount": 7482,
+            "winRatePercentage": 0.013
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 883863394508649,
+        "name": "14. Connect a Gamepad",
+        "statistics": {
+            "pastDayAwardedCount": 101,
+            "awardedCount": 31763,
+            "winRatePercentage": 0.047
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 3815451850757776,
+        "name": "15. Disconnect a Gamepad",
+        "statistics": {
+            "pastDayAwardedCount": 105,
+            "awardedCount": 29622,
+            "winRatePercentage": 0.049
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1240956973916309,
+        "name": "16. Open the Checklist",
+        "statistics": {
+            "pastDayAwardedCount": 2591,
+            "awardedCount": 1054440,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1791141774909664,
+        "name": "17. Close the Checklist",
+        "statistics": {
+            "pastDayAwardedCount": 2447,
+            "awardedCount": 996787,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2402082359357547,
+        "name": "18. Chat",
+        "statistics": {
+            "pastDayAwardedCount": 2524,
+            "awardedCount": 817419,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 6370627825209,
+        "name": "19. Fall Off the Map",
+        "statistics": {
+            "pastDayAwardedCount": 955,
+            "awardedCount": 378901,
+            "winRatePercentage": 0.444
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2182296430347036,
+        "name": "20. Touch the Leaderboard",
+        "statistics": {
+            "pastDayAwardedCount": 3250,
+            "awardedCount": 1139748,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 834356972037822,
+        "name": "21. Click the Leaderboard",
+        "statistics": {
+            "pastDayAwardedCount": 2332,
+            "awardedCount": 810232,
+            "winRatePercentage": 1.0
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2556479517722,
+        "name": "22. Click the Spawnpoint",
+        "statistics": {
+            "pastDayAwardedCount": 1667,
+            "awardedCount": 640934,
+            "winRatePercentage": 0.775
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 781374720195142,
+        "name": "23. Konami Code",
+        "statistics": {
+            "pastDayAwardedCount": 67,
+            "awardedCount": 41804,
+            "winRatePercentage": 0.031
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 4403583257735708,
+        "name": "24. Be in an Empty Server",
+        "statistics": {
+            "pastDayAwardedCount": 304,
+            "awardedCount": 148605,
+            "winRatePercentage": 0.141
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2596793674187054,
+        "name": "25. Be in a Full Server",
+        "statistics": {
+            "pastDayAwardedCount": 56,
+            "awardedCount": 82175,
+            "winRatePercentage": 0.026
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 78030905354225,
+        "name": "26. Q",
+        "statistics": {
+            "pastDayAwardedCount": 1078,
+            "awardedCount": 395707,
+            "winRatePercentage": 0.501
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2872283437821216,
+        "name": "27. W",
+        "statistics": {
+            "pastDayAwardedCount": 1743,
+            "awardedCount": 592644,
+            "winRatePercentage": 0.811
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 4298563535274734,
+        "name": "28. E",
+        "statistics": {
+            "pastDayAwardedCount": 1143,
+            "awardedCount": 409140,
+            "winRatePercentage": 0.532
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 360931317065964,
+        "name": "29. R",
+        "statistics": {
+            "pastDayAwardedCount": 1011,
+            "awardedCount": 367380,
+            "winRatePercentage": 0.47
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 429115567812460,
+        "name": "30. T",
+        "statistics": {
+            "pastDayAwardedCount": 983,
+            "awardedCount": 356705,
+            "winRatePercentage": 0.457
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2226554901955480,
+        "name": "31. Y",
+        "statistics": {
+            "pastDayAwardedCount": 939,
+            "awardedCount": 343562,
+            "winRatePercentage": 0.437
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 916880090339227,
+        "name": "32. U",
+        "statistics": {
+            "pastDayAwardedCount": 939,
+            "awardedCount": 342893,
+            "winRatePercentage": 0.437
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2235601077342708,
+        "name": "33. I",
+        "statistics": {
+            "pastDayAwardedCount": 965,
+            "awardedCount": 353503,
+            "winRatePercentage": 0.449
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 3970864651194034,
+        "name": "34. O",
+        "statistics": {
+            "pastDayAwardedCount": 968,
+            "awardedCount": 349683,
+            "winRatePercentage": 0.45
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1965756060754704,
+        "name": "35. P",
+        "statistics": {
+            "pastDayAwardedCount": 894,
+            "awardedCount": 324504,
+            "winRatePercentage": 0.416
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 855420657457185,
+        "name": "36. A",
+        "statistics": {
+            "pastDayAwardedCount": 1688,
+            "awardedCount": 574749,
+            "winRatePercentage": 0.785
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1196300524030672,
+        "name": "37. S",
+        "statistics": {
+            "pastDayAwardedCount": 1660,
+            "awardedCount": 559860,
+            "winRatePercentage": 0.772
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 3565476006116598,
+        "name": "38. D",
+        "statistics": {
+            "pastDayAwardedCount": 1679,
+            "awardedCount": 575829,
+            "winRatePercentage": 0.781
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 4450899674437231,
+        "name": "39. F",
+        "statistics": {
+            "pastDayAwardedCount": 999,
+            "awardedCount": 360754,
+            "winRatePercentage": 0.465
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 3718537393101638,
+        "name": "40. G",
+        "statistics": {
+            "pastDayAwardedCount": 943,
+            "awardedCount": 343185,
+            "winRatePercentage": 0.439
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2067625720901930,
+        "name": "41. H",
+        "statistics": {
+            "pastDayAwardedCount": 985,
+            "awardedCount": 349538,
+            "winRatePercentage": 0.458
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1699067754363164,
+        "name": "42. J",
+        "statistics": {
+            "pastDayAwardedCount": 890,
+            "awardedCount": 324985,
+            "winRatePercentage": 0.414
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2498589519167042,
+        "name": "43. K",
+        "statistics": {
+            "pastDayAwardedCount": 887,
+            "awardedCount": 324625,
+            "winRatePercentage": 0.413
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2181382568588484,
+        "name": "44. L",
+        "statistics": {
+            "pastDayAwardedCount": 911,
+            "awardedCount": 325030,
+            "winRatePercentage": 0.424
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 2706414659294960,
+        "name": "45. Z",
+        "statistics": {
+            "pastDayAwardedCount": 899,
+            "awardedCount": 325112,
+            "winRatePercentage": 0.418
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 3872635867525597,
+        "name": "46. X",
+        "statistics": {
+            "pastDayAwardedCount": 843,
+            "awardedCount": 310468,
+            "winRatePercentage": 0.392
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 4084897593762512,
+        "name": "47. C",
+        "statistics": {
+            "pastDayAwardedCount": 899,
+            "awardedCount": 329907,
+            "winRatePercentage": 0.418
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 204451714859034,
+        "name": "48. V",
+        "statistics": {
+            "pastDayAwardedCount": 877,
+            "awardedCount": 313229,
+            "winRatePercentage": 0.408
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 1409598089011069,
+        "name": "49. B",
+        "statistics": {
+            "pastDayAwardedCount": 916,
+            "awardedCount": 329812,
+            "winRatePercentage": 0.426
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
+        }
+    },
+    {
+        "id": 881664195164545,
+        "name": "50. N",
+        "statistics": {
+            "pastDayAwardedCount": 908,
+            "awardedCount": 330694,
+            "winRatePercentage": 0.422
+        },
+        "awardingUniverse": {
+            "id": 6385055891,
+            "name": "There's A Badge For Everything",
+            "rootPlaceId": 18851186704
         }
     }
 ]
