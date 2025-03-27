@@ -83,7 +83,11 @@ async def update_badge_data():
                 store_badge_data(processed_data)
             else:
                 print(f"Skipping badge ID {badge_id} due to errors.")
+            
+            # Introduce a delay between each badge ID check
+            await asyncio.sleep(3)  # adjust the delay as needed
         
-        await asyncio.sleep(15)  
+        # Wait for 15 minutes before checking again
+        await asyncio.sleep(5 * 60)  
 
 asyncio.run(update_badge_data())
