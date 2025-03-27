@@ -21,6 +21,7 @@ TRACKING_FILE = 'tracking_stopped.json'
 
 def load_json_file(filename):
     """Loads a JSON file, returns an empty list if it doesn’t exist or fails."""
+    print(f"Loading JSON file: {filename}")
     if os.path.exists(filename):
         try:
             with open(filename, 'r') as f:
@@ -31,13 +32,16 @@ def load_json_file(filename):
 
 def save_json_file(filename, data):
     """Saves data to a JSON file."""
+    print(f"Saving JSON file: {filename}")
     with open(filename, 'w') as f:
         json.dump(data, f, indent=4)
 
 def ensure_tracking_file():
     """Ensures tracking_stopped.json exists with default values."""
+    print("Ensuring tracking file exists...")
     tracking_data = load_json_file(TRACKING_FILE)
     if not tracking_data:
+        print("Tracking file is empty, initializing...")
         tracking_data = [{"id": badge["id"], "name": badge["name"], "tracking": "online"} for badge in load_json_file(BADGE_DATA_FILE)]
         save_json_file(TRACKING_FILE, tracking_data)
     return tracking_data
@@ -46,6 +50,7 @@ async def fetch_badge_data(badge, tracking_entry, channel, tracking_data, previo
     """Fetches updated badge data from the Roblox API."""
     badge_id = badge["id"]
     url = f'https://badges.roblox.com/v1/badges/{badge_id}'
+    print(f"Fetching data for badge ID: {badge_id}")
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -53,9 +58,11 @@ async def fetch_badge_data(badge, tracking_entry, channel, tracking_data, previo
         print(f"API Response for {badge_id}: {processed_data}")
 
         awarded_count = processed_data.get("statistics", {}).get("awardedCount", 0)
+        print(f"Previous count: {badge['statistics'].get('awardedCount', 0)}, New count: {awarded_count}")
 
         if awarded_count > badge["statistics"].get("awardedCount", 0):  
             increase = awarded_count - badge["statistics"]["awardedCount"]
+            print(f"Badge {badge['name']} increased by {increase}")
             message = (
                 f"<@&1353603959691939931> Someone just got **{badge['name']}** from **{badge['awardingUniverse']['name']}**\n"
                 f"**Previous:** {badge['statistics']['awardedCount']}\n"
@@ -76,6 +83,7 @@ async def fetch_badge_data(badge, tracking_entry, channel, tracking_data, previo
 
 async def update_badge_data():
     """Continuously checks for badge award increases and updates tracking."""
+    print("Starting badge data update loop...")
     await client.wait_until_ready()
     channel = client.get_channel(CHANNEL_ID)
 
@@ -84,6 +92,7 @@ async def update_badge_data():
         return
 
     while True:
+        print("Checking badge data...")
         previous_data = load_json_file(BADGE_DATA_FILE)
         tracking_data = ensure_tracking_file()
 
@@ -103,19 +112,20 @@ async def run_badge_data_updater():
     while True:
         print("Running badge_data_updater.py...")
         subprocess.run(["python", "badge_data_updater.py"])  # Run the script
-        await asyncio.sleep(15)  # Wait for 15 seconds before running again
+        await asyncio.sleep(5*60)  # Wait for 5 mins before running again
 
 @client.event
 async def on_ready():
     """Runs when the bot connects to Discord."""
     print(f"Bot is online as {client.user}")
     channel = client.get_channel(CHANNEL_ID)
+    
     if channel:
+        print("Sending online message to channel...")
         await channel.send("Bot is now online and monitoring badge data!")
 
-    # Start the badge data updater in a separate task
+    # Start the background task to run badge_data_updater.py every 15 seconds
     asyncio.create_task(run_badge_data_updater())
-    # Start the update loop for badge data
-    asyncio.create_task(update_badge_data())
 
+print("Starting bot...")
 client.run(DISCORD_TOKEN)

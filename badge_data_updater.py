@@ -69,7 +69,8 @@ def process_badge_data(badge_data):
 
 badge_ids = [
     "1937835649007198",
-    "1632252210831820"
+    "1632252210831820",
+    
 ]
 
 async def update_badge_data():
